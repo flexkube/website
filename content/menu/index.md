@@ -1,0 +1,32 @@
+---
+headless: true
+---
+
+- [**Documentation**]({{< relref "/documentation" >}})
+  - [Overview]({{< relref "/documentation/overview" >}})
+  - [Getting Started]({{< relref "/documentation/getting-started" >}})
+    - [Requirements]({{< relref "/documentation/getting-started/requirements" >}})
+    - [Installing]({{< relref "/documentation/getting-started/installing" >}})
+      - [CLI binary]({{< relref "/documentation/getting-started/installing/cli" >}})
+      - [Terraform Provider]({{< relref "/documentation/getting-started/installing/terraform" >}})
+  - [Concepts]({{< relref "/documentation/concepts" >}})
+    - [Managing Containers]({{< relref "/documentation/concepts/managing-containers" >}})
+  - [Resources]({{< relref "/documentation/resources" >}})
+    - [PKI]({{< relref "/documentation/resources/pki" >}})
+    - [etcd]({{< relref "/documentation/resources/etcd" >}})
+    - [API Load Balancer]({{< relref "/documentation/resources/api-loadbalancer" >}})
+    - [Controlplane]({{< relref "/documentation/resources/controlplane" >}})
+    - [Kubelet Pool]({{< relref "/documentation/resources/kubelet-pool" >}})
+  - [Helm Charts]({{< relref "/documentation/helm-charts" >}})
+  - [Reference]({{< relref "/documentation/reference" >}})
+    - [Go]({{< relref "/documentation/reference/go" >}})
+    - [Terraform]({{< relref "/documentation/reference/terraform" >}})
+      - [Flexkube Provider]({{< relref "/documentation/reference/terraform/flexkube-provider" >}})
+      - [Resources]({{< relref "/documentation/reference/terraform/resources" >}})
+        - [flexkube_pki]({{< relref "/documentation/reference/terraform/resources/flexkube_pki" >}})
+        - [flexkube_etcd_cluster]({{< relref "/documentation/reference/terraform/resources/flexkube_etcd_cluster" >}})
+        - [flexkube_controlplane]({{< relref "/documentation/reference/terraform/resources/flexkube_controlplane" >}})
+        - [flexkube_api_loadbalancer_pool]({{< relref "/documentation/reference/terraform/resources/flexkube_api_loadbalancer_pool" >}})
+        - [flexkube_kubelet_pool]({{< relref "/documentation/reference/terraform/resources/flexkube_kubelet_pool" >}})
+    - [CLI]({{< relref "/documentation/reference/cli" >}})
+

@@ -1,0 +1,14 @@
+baseURL = "https://flexkube.github.io/"
+languageCode = "en-us"
+title = "Flexkube"
+
+theme = "book"
+[params]
+  # Use logo from /static/assets submodule.
+  BookLogo = "/assets/icon.svg"
+  # Render all folders into the menu.
+  BookSection = "*"
+  # For links to edit and last modified.
+  BookRepo = "https://github.com/flexkube/website"
+  BookEditPath = 'edit/master/content'
+  BookMenuBundle = '/menu'
