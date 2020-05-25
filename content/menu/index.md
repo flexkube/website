@@ -9,6 +9,8 @@ headless: true
     - [Installing]({{< relref "/documentation/getting-started/installing" >}})
       - [CLI binary]({{< relref "/documentation/getting-started/installing/cli" >}})
       - [Terraform Provider]({{< relref "/documentation/getting-started/installing/terraform" >}})
+  - [Guides]({{< relref "/documentation/guides" >}})
+    - [Creating single-node cluster on local machine using "flexkube" CLI]({{< relref "/documentation/guides/creating-single-node-cluster-on-local-machine-using-flexkube-cli" >}})
   - [Concepts]({{< relref "/documentation/concepts" >}})
     - [Managing Containers]({{< relref "/documentation/concepts/managing-containers" >}})
   - [Resources]({{< relref "/documentation/resources" >}})
