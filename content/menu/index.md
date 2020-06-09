@@ -9,6 +9,7 @@ headless: true
     - [Installing]({{< relref "/documentation/getting-started/installing" >}})
       - [CLI binary]({{< relref "/documentation/getting-started/installing/cli" >}})
       - [Terraform Provider]({{< relref "/documentation/getting-started/installing/terraform" >}})
+        - Go module
   - [Guides]({{< relref "/documentation/guides" >}})
     - etcd
       - [Creating single-member cluster on local machine using Terraform]({{< relref "/documentation/guides/etcd/creating-single-member-cluster-on-local-machine-using-terraform" >}})
@@ -20,15 +21,45 @@ headless: true
       - [Creating multi-node cluster using Terraform]({{< relref "/documentation/guides/kubernetes/creating-multi-node-cluster-using-terraform" >}})
   - [Concepts]({{< relref "/documentation/concepts" >}})
     - [Managing containers]({{< relref "/documentation/concepts/managing-containers" >}})
+    - Managing Kubernetes certificates
+    - Supported transport protocols
+    - Supported container runtimes
+    - Self-hosted Kubernetes controlplane
   - [Resources]({{< relref "/documentation/resources" >}})
     - [PKI]({{< relref "/documentation/resources/pki" >}})
     - [etcd]({{< relref "/documentation/resources/etcd" >}})
     - [API Load Balancer]({{< relref "/documentation/resources/api-loadbalancer" >}})
     - [Controlplane]({{< relref "/documentation/resources/controlplane" >}})
     - [Kubelet Pool]({{< relref "/documentation/resources/kubelet-pool" >}})
+    - Containers
   - [Helm charts]({{< relref "/documentation/helm-charts" >}})
+    - Maintained
+      - calico
+      - kube-apiserver
+      - kube-proxy
+      - kubelet-rubber-stamp
+      - kubernetes
+      - tls-bootstrapping
+    - Upstream
+      - stable/coredns
+      - stable/metrics-server
   - [Reference]({{< relref "/documentation/reference" >}})
-    - [Go]({{< relref "/documentation/reference/go" >}})
+    - [CLI]({{< relref "/documentation/reference/cli" >}})
+      - Configuration
+        - kubelet-pool
+        - apiloadbalancer-pool
+        - etcd
+        - pki
+        - controlplane
+        - containers
+      - Commands
+        - kubelet-pool
+        - apiloadbalancer-pool
+        - etcd
+        - pki
+        - controlplane
+        - kubeconfig
+        - containers
     - [Terraform]({{< relref "/documentation/reference/terraform" >}})
       - [Flexkube provider]({{< relref "/documentation/reference/terraform/flexkube-provider" >}})
       - [Resources]({{< relref "/documentation/reference/terraform/resources" >}})
@@ -37,6 +68,12 @@ headless: true
         - [flexkube_controlplane]({{< relref "/documentation/reference/terraform/resources/flexkube_controlplane" >}})
         - [flexkube_api_loadbalancer_pool]({{< relref "/documentation/reference/terraform/resources/flexkube_api_loadbalancer_pool" >}})
         - [flexkube_kubelet_pool]({{< relref "/documentation/reference/terraform/resources/flexkube_kubelet_pool" >}})
-    - [CLI]({{< relref "/documentation/reference/cli" >}})
-  - State of the project
+    - Helm charts
+      - kube-apiserver
+      - kubernetes
+      - tls-bootstrapping
+      - calico
+      - kubelet-rubber-stamp
+    - [Go]({{< relref "/documentation/reference/go" >}})
+  - Project status
 
