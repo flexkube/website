@@ -2,7 +2,7 @@
 
 This guide describes how to create single node Kubernetes cluster using `flexkube` CLI. It will explain cluster creation process step by step to explain the configuration and provide some insights.
 
-For fully automated creation, see [Creating cluster with Terraform](TODO).	
+For fully automated creation, see [Creating single-node Kubernetes cluster on local machine using Terraform]({{< relref "/documentation/guides/kubernetes/creating-single-node-cluster-on-local-machine-using-terraform" >}}).
 
 ## Requirements
 
@@ -116,7 +116,7 @@ For compatibility with rest of the tutorial, you should make sure that downloade
 You can also add working directory to the $PATH using the following command:
 
 ```sh
-export PATH="${PATH}:$(pwd)"
+export PATH="$(pwd):${PATH}"
 ```
 
 ## Creating the cluster
@@ -165,7 +165,7 @@ If everything succeeded, you should find many certificates in newly created `sta
 
 Before we start Kubernetes containers, we need etcd cluster. Flexkube provides [etcd](TODO) resource to manage such clusters.
 
-To create etcd cluster, we need to configure it's members in `config.yaml` file. This can be done using the following:
+To create etcd cluster, we need to configure it's members in `config.yaml` file. This can be done using the following command:
 
 ```yaml
 cat <<EOF >> config.yaml
@@ -193,7 +193,7 @@ Once finished, you should see etcd container running, if you run `docker ps`.
 
 ### Creating static Kubernetes controlplane
 
-With etcd running, you can now create static Kubernetes controlplane. Static, before Flexkube recommend to run Kubernetes controlplane *self-hosted*, so managed using Kubernetes itself. However, before this can be done, temporary, or *static* controlplane is needed. And this is exactly what [Controlplane](TODO) resource provides.
+With etcd running, you can now create static Kubernetes controlplane. Static, as Flexkube recommends to run Kubernetes controlplane *self-hosted*, so managed using Kubernetes itself. However, before this can be done, temporary, or *static* controlplane is needed. And this is exactly what [Controlplane](TODO) resource provides.
 
 You can configure it by running the following command:
 
@@ -218,12 +218,6 @@ See [Controlplane configuration reference](TODO) to see all available configurat
 
 {{< /hint >}}
 
-{{< hint info >}}
-
-Make sure that `serviceCIDR` does not collide with any networks you have configured on your machine.
-
-{{< /hint >}}
-
 Now, you can create Kubernetes controlplane using the following command:
 
 ```sh
@@ -236,12 +230,12 @@ Once finished, you should see 3 new containers running when you run `docker ps`.
 
 ### Getting kubeconfig file
 
-To access the Kubernetes cluster, you need `kubeconfig` file. `flexkube` CLI provides `flexkube kubeconfig` command, which will read information about the cluster from configuration and state files and print it to you.
+Even though the cluster has no objects or deployments yet, you should be able to access it already. For that, you need `kubeconfig` file. `flexkube` CLI provides `flexkube kubeconfig` command, which will read information about the cluster from configuration and state files and print it to you.
 
 To generate `kubeconfig` file, run the following command:
 
 ```sh
-flexkube kubeconfig | tail -n +2 > kubeconfig
+flexkube kubeconfig | grep -v "Trying to read" > kubeconfig
 ```
 
 `kubeconfig` file should be created.
@@ -279,7 +273,7 @@ helm upgrade --install -n kube-system tls-bootstrapping flexkube/tls-bootstrappi
 
 ### Creating kubelet pool
 
-With Flexkube, kubelets are managed in pools by [Kubelet Pool](TODO) resource. This allows to group them to share the configuration. Usually clusters have one group called `controllers` with controlplane nodes and one or more *worker* pools, which might characterize with e.g. different hardware.
+With Flexkube, kubelets are managed in pools by [Kubelet Pool](TODO) resource. This allows to group them to share the configuration. Usually clusters have one group called `controllers` which runs controlplane components and one or more *worker* pools, which might characterize with e.g. different hardware.
 
 For this tutorial, we will just create single pool `default`.
 
@@ -341,7 +335,7 @@ helm upgrade --install -n kube-system kube-proxy flexkube/kube-proxy --set "podC
 
 While not necessarily required for this guide, as we only run one node, it is recommended to install some CNI plugin on the cluster, as without that, kubelet will stay in `NotReady` state.
 
-Flexkube recommends using [Calico](https://www.projectcalico.org/), as it works on variety of platforms and provides both CNI plugin and [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) implementation. Flexkube also provides [calico helm chart](TODO), so Calico can be installation can be easily configured and managed.
+Flexkube recommends using [Calico](https://www.projectcalico.org/) as a CNI plugin, as it works on variety of platforms and provides both IPAM and [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) implementation. Flexkube also provides [calico helm chart](TODO), so Calico installation can be easily configured and managed.
 
 To install it, run the following command:
 
@@ -379,7 +373,11 @@ helm upgrade --install -n kube-system kubelet-rubber-stamp flexkube/kubelet-rubb
 
 ## Verifying cluster functionality
 
+Now your cluster is ready to use. Go ahead and try deploying some application on it. Please keep following things in mind, while using the cluster:
 
+- Service of type `LoadBalancer` won't get the IP address, as there is no controller, which could assign it.
+- The cluster has [Pod Security Policies](https://kubernetes.io/docs/concepts/policy/pod-security-policy/) enabled by default. Make sure your deployment ships the PSP.
+- There is no storage provider on the cluster, so pods requesting PVCs will be stuck in pending state.
 
 ## Cleaning up
 
@@ -408,3 +406,9 @@ Finally, following directories can be removed as well:
 ```sh
 sudo rm -rf /etc/kubernetes/ /var/lib/etcd/ /var/lib/kubelet/ /var/lib/calico/
 ```
+
+## What's next
+
+This guide explains, how to create a cluster using `flexkube` CLI, which explains every step and provides insights, but might be time consuming and error-prone. For fully automated installation, see "[Creating single-node Kubernetes cluster on local machine using Terraform]({{< relref "/documentation/guides/kubernetes/creating-single-node-cluster-on-local-machine-using-terraform" >}})".
+
+If you want to deploy the cluster to remote machine(s), which also supports HA controlplane, see "[Creating multi-node cluster using Terraform]({{< relref "/documentation/guides/kubernetes/creating-multi-node-cluster-using-terraform" >}})".

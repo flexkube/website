@@ -1,0 +1,1 @@
+# Creating single-node cluster on local machine using Terraform
