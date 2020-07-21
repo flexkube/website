@@ -47,7 +47,7 @@ end
 Then, run the following commands to create the machines:
 
 ```sh
-vagrant up 
+vagrant up
 ```
 
 {{< /expand >}}
@@ -303,7 +303,7 @@ etcdctl endpoint health
 
 ## What's next
 
-With cluster running, you can now start using it, e.g. to deploy Kubernetes cluster. To do that using Flexkube and Terraform, you can follow [Creating multi node Kubernetes cluster over SSH using Terraform](TODO).
+With cluster running, you can now start using it, e.g. to deploy Kubernetes cluster. To do that using Flexkube and Terraform, you can follow [Creating multi node Kubernetes cluster using Terraform]({{< relref "/documentation/guides/kubernetes/creating-multi-node-cluster-using-terraform" >}}).
 
 To clean up created resources, see the section below.
 

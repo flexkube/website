@@ -9,9 +9,9 @@ headless: true
     - [Installing]({{< relref "/documentation/getting-started/installing" >}})
       - [CLI binary]({{< relref "/documentation/getting-started/installing/cli" >}})
       - [Terraform Provider]({{< relref "/documentation/getting-started/installing/terraform" >}})
-        - Go module
+      - [Go module]({{< relref "/documentation/getting-started/installing/go" >}})
   - [Guides]({{< relref "/documentation/guides" >}})
-    - etcd
+    - [etcd]({{< relref "/documentation/guides/etcd" >}})
       - [Creating single-member cluster on local machine using Terraform]({{< relref "/documentation/guides/etcd/creating-single-member-cluster-on-local-machine-using-terraform" >}})
       - [Creating single-member cluster on local machine using Flexkube CLI]({{< relref "/documentation/guides/etcd/creating-single-member-cluster-on-local-machine-using-flexkube-cli" >}})
       - [Creating multi-node cluster over SSH using Terraform]({{< relref "/documentation/guides/etcd/creating-multi-member-cluster-over-ssh-using-terraform" >}})
@@ -21,45 +21,48 @@ headless: true
       - [Creating multi-node cluster using Terraform]({{< relref "/documentation/guides/kubernetes/creating-multi-node-cluster-using-terraform" >}})
   - [Concepts]({{< relref "/documentation/concepts" >}})
     - [Managing containers]({{< relref "/documentation/concepts/managing-containers" >}})
-    - Managing Kubernetes certificates
-    - Supported transport protocols
-    - Supported container runtimes
-    - Self-hosted Kubernetes controlplane
+    - [Managing Kubernetes certificates]({{< relref "/documentation/concepts/managing-certificates" >}})
+    - [Supported transport protocols]({{< relref "/documentation/concepts/supported-transport-protocols" >}})
+      - [Direct]({{< relref "/documentation/concepts/supported-transport-protocols/direct" >}})
+      - [SSH]({{< relref "/documentation/concepts/supported-transport-protocols/ssh" >}})
+    - [Supported container runtimes]({{< relref "/documentation/concepts/supported-container-runtimes" >}})
+      - [Docker]({{< relref "/documentation/concepts/supported-container-runtimes/docker" >}})
+    - [Self-hosted Kubernetes controlplane]({{< relref "/documentation/concepts/self-hosted-kubernetes-controlplane" >}})
   - [Resources]({{< relref "/documentation/resources" >}})
     - [PKI]({{< relref "/documentation/resources/pki" >}})
     - [etcd]({{< relref "/documentation/resources/etcd" >}})
     - [API Load Balancer]({{< relref "/documentation/resources/api-loadbalancer" >}})
     - [Controlplane]({{< relref "/documentation/resources/controlplane" >}})
     - [Kubelet Pool]({{< relref "/documentation/resources/kubelet-pool" >}})
-    - Containers
+    - [Containers]({{< relref "/documentation/resources/containers" >}})
   - [Helm charts]({{< relref "/documentation/helm-charts" >}})
-    - Maintained
-      - calico
-      - kube-apiserver
-      - kube-proxy
-      - kubelet-rubber-stamp
-      - kubernetes
-      - tls-bootstrapping
-    - Upstream
-      - stable/coredns
-      - stable/metrics-server
+    - [Maintained]({{< relref "/documentation/helm-charts/maintained" >}})
+      - [calico]({{< relref "/documentation/helm-charts/maintained/calico" >}})
+      - [kube-apiserver]({{< relref "/documentation/helm-charts/maintained/kube-apiserver" >}})
+      - [kube-proxy]({{< relref "/documentation/helm-charts/maintained/kube-proxy" >}})
+      - [kubelet-rubber-stamp]({{< relref "/documentation/helm-charts/maintained/kubelet-rubber-stamp" >}})
+      - [kubernetes]({{< relref "/documentation/helm-charts/maintained/kubernetes" >}})
+      - [tls-bootstrapping]({{< relref "/documentation/helm-charts/maintained/tls-bootstrapping" >}})
+    - [Upstream]({{< relref "/documentation/helm-charts/upstream" >}})
+      - [stable/coredns]({{< relref "/documentation/helm-charts/upstream/stable-coredns" >}})
+      - [stable/metrics-server]({{< relref "/documentation/helm-charts/upstream/stable-metrics-server" >}})
   - [Reference]({{< relref "/documentation/reference" >}})
     - [CLI]({{< relref "/documentation/reference/cli" >}})
-      - Configuration
-        - kubelet-pool
-        - apiloadbalancer-pool
-        - etcd
-        - pki
-        - controlplane
-        - containers
-      - Commands
-        - kubelet-pool
-        - apiloadbalancer-pool
-        - etcd
-        - pki
-        - controlplane
-        - kubeconfig
-        - containers
+      - [Configuration]({{< relref "/documentation/reference/cli/configuration" >}})
+        - [kubelet-pool]({{< relref "/documentation/reference/cli/configuration/kubelet-pool" >}})
+        - [apiloadbalancer-pool]({{< relref "/documentation/reference/cli/configuration/apiloadbalancer-pool" >}})
+        - [etcd]({{< relref "/documentation/reference/cli/configuration/etcd" >}})
+        - [pki]({{< relref "/documentation/reference/cli/configuration/pki" >}})
+        - [controlplane]({{< relref "/documentation/reference/cli/configuration/controlplane" >}})
+        - [containers]({{< relref "/documentation/reference/cli/configuration/containers" >}})
+      - [Commands]({{< relref "/documentation/reference/cli/commands" >}})
+        - [kubelet-pool]({{< relref "/documentation/reference/cli/commands/kubelet-pool" >}})
+        - [apiloadbalancer-pool]({{< relref "/documentation/reference/cli/commands/apiloadbalancer-pool" >}})
+        - [etcd]({{< relref "/documentation/reference/cli/commands/etcd" >}})
+        - [pki]({{< relref "/documentation/reference/cli/commands/pki" >}})
+        - [controlplane]({{< relref "/documentation/reference/cli/commands/controlplane" >}})
+        - [kubeconfig]({{< relref "/documentation/reference/cli/commands/kubeconfig" >}})
+        - [containers]({{< relref "/documentation/reference/cli/commands/containers" >}})
     - [Terraform]({{< relref "/documentation/reference/terraform" >}})
       - [Flexkube provider]({{< relref "/documentation/reference/terraform/flexkube-provider" >}})
       - [Resources]({{< relref "/documentation/reference/terraform/resources" >}})
@@ -68,12 +71,12 @@ headless: true
         - [flexkube_controlplane]({{< relref "/documentation/reference/terraform/resources/flexkube_controlplane" >}})
         - [flexkube_api_loadbalancer_pool]({{< relref "/documentation/reference/terraform/resources/flexkube_api_loadbalancer_pool" >}})
         - [flexkube_kubelet_pool]({{< relref "/documentation/reference/terraform/resources/flexkube_kubelet_pool" >}})
-    - Helm charts
-      - kube-apiserver
-      - kubernetes
-      - tls-bootstrapping
-      - calico
-      - kubelet-rubber-stamp
+    - [Helm charts]({{< relref "/documentation/reference/helm-charts" >}})
+      - [kube-apiserver]({{< relref "/documentation/reference/helm-charts/kube-apiserver" >}})
+      - [kubernetes]({{< relref "/documentation/reference/helm-charts/kubernetes" >}})
+      - [tls-bootstrapping]({{< relref "/documentation/reference/helm-charts/tls-bootstrapping" >}})
+      - [calico]({{< relref "/documentation/reference/helm-charts/calico" >}})
+      - [kubelet-rubber-stamp]({{< relref "/documentation/reference/helm-charts/kubelet-rubber-stamp" >}})
     - [Go]({{< relref "/documentation/reference/go" >}})
-  - Project status
+  - [Project status]({{< relref "/documentation/project-status" >}})
 

@@ -2,7 +2,7 @@
 
 This guide describes how to create single member etcd cluster using Terraform and Flexkube provider. The process is very simple and requires just a few steps.
 
-For more detailed guide, see [Creating single member etcd cluster on local machine using flexkube CLI](TODO).
+For more detailed guide, see [Creating single member etcd cluster on local machine using flexkube CLI]({{< relref "/documentation/guides/etcd/creating-single-member-cluster-on-local-machine-using-flexkube-cli" >}}).
 
 ## Requirements
 
@@ -242,7 +242,7 @@ etcdctl endpoint health
 
 ## What's next
 
-With cluster running, you can now start using it, e.g. to deploy Kubernetes cluster. To do that using Flexkube and Terraform, you can follow [Creating single node Kubernetes cluster on local machine using Terraform](TODO).
+With cluster running, you can now start using it, e.g. to deploy Kubernetes cluster. To do that using Flexkube and Terraform, you can follow [Creating single node Kubernetes cluster on local machine using Terraform]({{< relref "/documentation/guides/kubernetes/creating-single-node-cluster-on-local-machine-using-terraform" >}}).
 
 To clean up created resources, see the section below.
 

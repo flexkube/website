@@ -125,7 +125,7 @@ Now that you have all required binaries and information, we can start creating t
 
 ### Creating certificates
 
-First step to create a cluster is to generate all certificates required by Kubernetes. As this is not a trivial task to create and manage those certificates, Flexkube provides [PKI resource](TODO), which does exactly that.
+First step to create a cluster is to generate all certificates required by Kubernetes. As this is not a trivial task to create and manage those certificates, Flexkube provides [PKI resource]({{< relref "/documentation/resources/pki" >}}), which does exactly that.
 
 Before we create the certificates, we need to provide some configuration to tell PKI resource to create for you both etcd and Kubernetes certificates, as by default it only creates Root CA certificate.
 
@@ -149,7 +149,7 @@ EOF
 
 {{< hint info >}}
 
-See [PKI configuration reference](TODO) to see all available configuration options.
+See [PKI configuration reference]({{< relref "/documentation/reference/cli/configuration/pki" >}}) to see all available configuration options.
 
 {{< /hint >}}
 
@@ -163,7 +163,7 @@ If everything succeeded, you should find many certificates in newly created `sta
 
 ### Creating etcd cluster
 
-Before we start Kubernetes containers, we need etcd cluster. Flexkube provides [etcd](TODO) resource to manage such clusters.
+Before we start Kubernetes containers, we need etcd cluster. Flexkube provides [etcd]({{< relref "/documentation/resources/etcd" >}}) resource to manage such clusters.
 
 To create etcd cluster, we need to configure it's members in `config.yaml` file. This can be done using the following command:
 
@@ -179,7 +179,7 @@ EOF
 
 {{< hint info >}}
 
-See [etcd configuration reference](TODO) to see all available configuration options.
+See [etcd configuration reference]({{< relref "/documentation/reference/cli/configuration/etcd" >}}) to see all available configuration options.
 
 {{< /hint >}}
 
@@ -193,7 +193,7 @@ Once finished, you should see etcd container running, if you run `docker ps`.
 
 ### Creating static Kubernetes controlplane
 
-With etcd running, you can now create static Kubernetes controlplane. Static, as Flexkube recommends to run Kubernetes controlplane *self-hosted*, so managed using Kubernetes itself. However, before this can be done, temporary, or *static* controlplane is needed. And this is exactly what [Controlplane](TODO) resource provides.
+With etcd running, you can now create static Kubernetes controlplane. Static, as Flexkube recommends to run Kubernetes controlplane *self-hosted*, so managed using Kubernetes itself. However, before this can be done, temporary, or *static* controlplane is needed. And this is exactly what [Controlplane]({{< relref "/documentation/resources/controlplane" >}}) resource provides.
 
 You can configure it by running the following command:
 
@@ -214,7 +214,7 @@ EOF
 
 {{< hint info >}}
 
-See [Controlplane configuration reference](TODO) to see all available configuration options.
+See [Controlplane configuration reference]({{< relref "/documentation/reference/cli/configuration/controlplane" >}}) to see all available configuration options.
 
 {{< /hint >}}
 
@@ -256,7 +256,7 @@ Having a cluster without nodes is not very useful. This section describes how to
 
 Flexkube requires [TLS bootstrapping](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping) process to be used while adding new nodes to the cluster. To enable that, extra RBAC rules must be created before nodes tries to join the cluster.
 
-This step is handled by [tls-bootstrapping](TODO) helm chart, which creates RBAC rules and allows to create bootstrap tokens.
+This step is handled by [tls-bootstrapping]({{< relref "/documentation/helm-charts/maintained/tls-bootstrapping" >}}) helm chart, which creates RBAC rules and allows to create bootstrap tokens.
 
 First, we need to generate bootstrap token, which will be used in next steps. You can do it by running the following commands:
 
@@ -273,7 +273,7 @@ helm upgrade --install -n kube-system tls-bootstrapping flexkube/tls-bootstrappi
 
 ### Creating kubelet pool
 
-With Flexkube, kubelets are managed in pools by [Kubelet Pool](TODO) resource. This allows to group them to share the configuration. Usually clusters have one group called `controllers` which runs controlplane components and one or more *worker* pools, which might characterize with e.g. different hardware.
+With Flexkube, kubelets are managed in pools by [Kubelet Pool]({{< relref "/documentation/resources/kubelet-pool" >}}) resource. This allows to group them to share the configuration. Usually clusters have one group called `controllers` which runs controlplane components and one or more *worker* pools, which might characterize with e.g. different hardware.
 
 For this tutorial, we will just create single pool `default`.
 
@@ -297,6 +297,12 @@ kubeletPools:
       address: ${IP}
 EOF
 ```
+
+{{< hint info >}}
+
+See [Kubelet pool configuration reference]({{< relref "/documentation/reference/cli/configuration/kubelet-pool" >}}) to see all available configuration options.
+
+{{< /hint >}}
 
 Now, to create `default` pool, run the following command:
 
@@ -335,7 +341,7 @@ helm upgrade --install -n kube-system kube-proxy flexkube/kube-proxy --set "podC
 
 While not necessarily required for this guide, as we only run one node, it is recommended to install some CNI plugin on the cluster, as without that, kubelet will stay in `NotReady` state.
 
-Flexkube recommends using [Calico](https://www.projectcalico.org/) as a CNI plugin, as it works on variety of platforms and provides both IPAM and [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) implementation. Flexkube also provides [calico helm chart](TODO), so Calico installation can be easily configured and managed.
+Flexkube recommends using [Calico](https://www.projectcalico.org/) as a CNI plugin, as it works on variety of platforms and provides both IPAM and [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) implementation. Flexkube also provides [calico helm chart]({{< relref "/documentation/helm-charts/maintained/calico" >}}), so Calico installation can be easily configured and managed.
 
 To install it, run the following command:
 
