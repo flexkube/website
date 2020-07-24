@@ -4,3 +4,4 @@ Depending how you want to use Flexkube, you should see appropriate installing se
 
 - [CLI]({{< relref "/documentation/getting-started/installing/cli" >}}) for `flexkube` CLI users
 - [Terraform]({{< relref "/documentation/getting-started/installing/terraform" >}}) for Terraform users
+- [Go]({{< relref "/documentation/getting-started/installing/go" >}}) for Go module users

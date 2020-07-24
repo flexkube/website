@@ -6,51 +6,15 @@ This guide describes how to create multi member etcd cluster using Terraform and
 
 For this guide, it is required to have at least 2 Linux machines, with Docker daemon installed and running.
 
-It is recommended that machines has at least 1 GB of RAM and are fresh machines, as in tutorial the tools will write to directories like `/var/lib/etcd` or `/etc/kubernetes/`without notice.
+It is recommended that machines has at least 1 GB of RAM and are fresh machines, as in tutorial the tools will write to directories like `/var/lib/etcd` or `/etc/kubernetes` without notice.
 
-The Docker version should be 18.06+.
+The Docker version should be 18.06+. You can follow [Docker documentation](https://docs.docker.com/get-docker/) to see how to install Docker on your machine.
 
 Network interfaces setup is not important, however having a private IP address is recommended from security perspective.
 
 The machines must be able to communicate with each other.
 
-{{< expand "I don't have such machines." >}}
-
-If you don't have such machines available, you can create it locally, using [VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/). Make sure you have both tools installed by following respective guides:
-
-- [Installing VirtualBox](https://www.virtualbox.org/manual/ch02.html)
-- [Installing Vagrant](https://www.vagrantup.com/docs/installation/)
-
-Once done, create file named `Vagrantfile` with following content:
-
-```ruby
-Vagrant.configure("2") do |config|
-  config.vm.box       = "flatcar-stable"
-  config.vm.box_url   = "https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vagrant.box"
-  config.ssh.username = 'core'
-  config.vm.provider :virtualbox do |v|
-    v.memory = 1024
-  end
-
-  config.vm.define "member1" do |config|
-    config.vm.hostname = "member1"
-    config.vm.network "private_network", ip: "192.168.52.10"
-  end
-
-  config.vm.define "member2" do |config|
-    config.vm.hostname = "member2"
-    config.vm.network "private_network", ip: "192.168.52.11"
-  end
-end
-```
-
-Then, run the following commands to create the machines:
-
-```sh
-vagrant up
-```
-
-{{< /expand >}}
+If you don't have such machines, visit [Creating virtual machines for testing]({{< relref "/documentation/getting-started/requirements/creating-virtual-machines-for-testing#multiple-nodes" >}}) to see how to create them locally.
 
 ## Preparation
 

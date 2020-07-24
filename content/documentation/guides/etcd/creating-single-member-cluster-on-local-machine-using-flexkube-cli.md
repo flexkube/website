@@ -8,39 +8,13 @@ For fully automated creation, see [Creating single-member etcd cluster on local 
 
 For this guide, it is required to have one Linux machine, with Docker daemon installed and running.
 
-It is recommended that machine has at least 1 GB of RAM and is a fresh machine, as in tutorial the tools will write to directories like `/etc/kubernetes` or `/var/lib/etcd` without notice.
+It is recommended that machine has at least 1 GB of RAM and is a fresh machine, as in tutorial the tools will write to directories like `/var/lib/etcd` or `/etc/kubernetes` without notice.
 
 The Docker version should be 18.06+. You can follow [Docker documentation](https://docs.docker.com/get-docker/) to see how to install Docker on your machine.
 
 Network interfaces setup is not important, however having a private IP address is recommended from security perspective.
 
-{{< expand "I don't have such machine." >}}
-
-If you don't have such machine available, you can create it locally, using [VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/). Make sure you have both tools installed by following respective guides:
-
-- [Installing VirtualBox](https://www.virtualbox.org/manual/ch02.html)
-- [Installing Vagrant](https://www.vagrantup.com/docs/installation/)
-
-Once done, create file named `Vagrantfile` with following content:
-
-```ruby
-Vagrant.configure("2") do |config|
-  config.vm.box       = "flatcar-stable"
-  config.vm.box_url   = "https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_vagrant.box"
-  config.ssh.username = 'core'
-  config.vm.provider :virtualbox do |v|
-    v.memory = 1024
-  end
-end
-```
-
-Then, run the following commands to create and connect to the machine:
-
-```sh
-vagrant up && vagrant ssh
-```
-
-{{< /expand >}}
+If you don't have such machine, visit [Creating virtual machines for testing]({{< relref "/documentation/getting-started/requirements/creating-virtual-machines-for-testing#single-node" >}}) to see how to create one locally.
 
 ## Preparation
 

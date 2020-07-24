@@ -3,9 +3,9 @@ headless: true
 ---
 
 - [**Documentation**]({{< relref "/documentation" >}})
-  - [Overview]({{< relref "/documentation/overview" >}})
   - [Getting Started]({{< relref "/documentation/getting-started" >}})
     - [Requirements]({{< relref "/documentation/getting-started/requirements" >}})
+      - [Creating virtual machines for testing]({{< relref "/documentation/getting-started/requirements/creating-virtual-machines-for-testing" >}})
     - [Installing]({{< relref "/documentation/getting-started/installing" >}})
       - [CLI binary]({{< relref "/documentation/getting-started/installing/cli" >}})
       - [Terraform Provider]({{< relref "/documentation/getting-started/installing/terraform" >}})
@@ -19,6 +19,10 @@ headless: true
       - [Creating single-node cluster on local machine using "flexkube" CLI]({{< relref "/documentation/guides/kubernetes/creating-single-node-cluster-on-local-machine-using-flexkube-cli" >}})
       - [Creating single-node cluster on local machine using Terraform]({{< relref "/documentation/guides/kubernetes/creating-single-node-cluster-on-local-machine-using-terraform" >}})
       - [Creating multi-node cluster using Terraform]({{< relref "/documentation/guides/kubernetes/creating-multi-node-cluster-using-terraform" >}})
+  - [Examples]({{< relref "/documentation/examples" >}})
+    - [CLI]({{< relref "/documentation/examples/cli" >}})
+    - [Terraform]({{< relref "/documentation/examples/terraform" >}})
+    - [Go]({{< relref "/documentation/examples/go" >}})
   - [Concepts]({{< relref "/documentation/concepts" >}})
     - [Managing containers]({{< relref "/documentation/concepts/managing-containers" >}})
     - [Managing Kubernetes certificates]({{< relref "/documentation/concepts/managing-certificates" >}})

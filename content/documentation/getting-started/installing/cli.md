@@ -4,7 +4,7 @@
 
 The easiest way to get Flexkube CLI	 is to use one of the pre-built release binaries which are available for macOS and Linux.
 
-See [Github Releases](https://github.com/flexkube/libflexkube/releases) page for finding the latest available release.
+See [Github Releases](https://github.com/flexkube/libflexkube/releases) page to find the latest available release.
 
 For example, to download version `v0.3.0` on Linux, execute the following command:
 
@@ -36,10 +36,10 @@ To build Flexkube CLI from source, first clone [libflexkube](https://github.com/
 git clone https://github.com/flexkube/libflexkube.git && cd libflexkube
 ```
 
-Then, to build Terraform Provider binary, run the following command:
+Then, to build the binary, run the following command:
 
 ```sh
 go build ./cmd/flexkube
 ```
 
-It will build the `flexkube` binary into your current directory. It is recommende to move this binary into one of directories mentioned in your `$PATH` environment variable, e.g. to `~/.local/bin` or `/usr/local/bin`, to make it easy to access.
+When build is finished, the binary should be in the current directory. It is recommende to move this binary into one of directories mentioned in your `$PATH` environment variable, e.g. to `~/.local/bin` or `/usr/local/bin`, to make it easy to access.
