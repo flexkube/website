@@ -13,7 +13,7 @@ Following charts can be used directly from upstream and it is recommended to ins
 - [coredns](https://github.com/helm/charts/tree/master/stable/coredns) - provides Cluster DNS service
 - [metrics-server](https://github.com/helm/charts/tree/master/stable/metrics-server) - provides API for Pods and Nodes metrics, which is required by `kubectl top` command and auto-scaling
 
-Those charts can be installed from the `stable` repository e.g. using the following command:
+Those charts can be installed from the `stable` repository e.g. using the following commands:
 
 ```sh
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/ && \
@@ -29,7 +29,7 @@ For the charts, which are not available in upstream projects, Flexkube maintains
 - [calico](https://github.com/flexkube/calico-helm-chart) - provides [Calico](https://www.projectcalico.org/) CNI
 - [kubelet-rubber-stamp](https://github.com/flexkube/kubelet-rubber-stamp-helm-chart) - provides daemon, which approves Kubelet serving certificates, which is not done by `kube-controller-manager` as for other Kubelet certificates
 
-Those charts can be installed from the `flexkube` repository e.g. using the following command:
+Those charts can be installed from the `flexkube` repository e.g. using the following commands:
 
 ```sh
 helm repo add flexkube https://flexkube.github.io/charts/ && \
