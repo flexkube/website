@@ -6,10 +6,10 @@ The easiest way to get Flexkube Terraform provider is to use one of the pre-buil
 
 See [Github Releases](https://github.com/flexkube/libflexkube/releases) page for finding the latest available release.
 
-For example, to download version `v0.3.0` on Linux, execute the following command:
+For example, to download version `v0.3.1` on Linux, execute the following command:
 
 ```sh
-VERSION=v0.3.0 wget -qO- https://github.com/flexkube/libflexkube/releases/download/$VERSION/terraform-provider-flexkube_$VERSION_linux_amd64.tar.gz | tar zxvf - terraform-provider-flexkube_$VERSION_x4
+VERSION=v0.3.1 wget -qO- https://github.com/flexkube/libflexkube/releases/download/$VERSION/terraform-provider-flexkube_$VERSION_linux_amd64.tar.gz | tar zxvf - terraform-provider-flexkube_$VERSION_x4
 ```
 
 It will download the `terraform-provider-flexkube` binary into your current directory. If you have your Terraform code in the same directory, you can start using it right away, e.g. with `terraform init` command.
@@ -17,7 +17,7 @@ It will download the `terraform-provider-flexkube` binary into your current dire
 If you want the provider to be available in other directories, it is recommended to move the binary into `~/.terraform.d/plugins/` directory. This can be done using the following command:
 
 ```sh
-mkdir -p ~/.terraform.d/plugins/ && mv terraform-provider-flexkube_v0.3.0_x4 ~/.terraform.d/plugins/
+mkdir -p ~/.terraform.d/plugins/ && mv terraform-provider-flexkube_v0.3.1_x4 ~/.terraform.d/plugins/
 ```
 
 ## Building from source
@@ -35,7 +35,7 @@ go get github.com/flexkube/libflexkube/cmd/terraform-provider-flexkube
 Once done, it is recommended to move the binary into `~/.terraform.d/plugins/` directory to make it available for all Terraform environments:
 
 ```sh
-mkdir -p ~/.terraform.d/plugins/ && mv $(go env GOPATH)/bin/terraform-provider-flexkube ~/.terraform.d/plugins/terraform-provider-flexkube_v0.3.0_x4
+mkdir -p ~/.terraform.d/plugins/ && mv $(go env GOPATH)/bin/terraform-provider-flexkube ~/.terraform.d/plugins/terraform-provider-flexkube_v0.3.1_x4
 ```
 
 ### Using `git` and `go build`

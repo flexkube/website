@@ -63,7 +63,7 @@ export DNS_SERVICE_IP=11.0.0.10
 Once logged in, execute the following command to download `flexkube` CLI binary into working directory. This is the binary, which will be used to create a cluster components.
 
 ```sh
-export VERSION=v0.3.0
+export VERSION=v0.3.1
 wget -O- https://github.com/flexkube/libflexkube/releases/download/${VERSION}/flexkube_${VERSION}_linux_amd64.tar.gz | tar zxvf -
 ```
 

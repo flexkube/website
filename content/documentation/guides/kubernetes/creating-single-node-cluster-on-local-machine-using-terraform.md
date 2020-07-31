@@ -82,7 +82,7 @@ rm terraform_${VERSION}_linux_amd64.zip
 Execute the following command to download `flexkube` CLI binary into working directory on the machine where you want to create the etcd cluster.
 
 ```sh
-export VERSION=v0.3.0
+export VERSION=v0.3.1
 wget -O- https://github.com/flexkube/libflexkube/releases/download/${VERSION}/terraform-provider-flexkube_${VERSION}_linux_amd64.tar.gz | tar zxvf - terraform-provider-flexkube_${VERSION}_x4
 ```
 
