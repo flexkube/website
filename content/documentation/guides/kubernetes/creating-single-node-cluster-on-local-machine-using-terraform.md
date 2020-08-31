@@ -71,22 +71,13 @@ export TF_VAR_node_name=$(hostname)
 For this guide, you must have `terraform` binary available. You can download it using the following command:
 
 ```sh
-export VERSION=0.12.29
+export VERSION=0.13.1
 wget https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_amd64.zip && \
 unzip terraform_${VERSION}_linux_amd64.zip && \
 rm terraform_${VERSION}_linux_amd64.zip
 ```
 
-### Downloading `terraform-provider-flexkube` binary
-
-Execute the following command to download `flexkube` CLI binary into working directory on the machine where you want to create the etcd cluster.
-
-```sh
-export VERSION=v0.3.1
-wget -O- https://github.com/flexkube/libflexkube/releases/download/${VERSION}/terraform-provider-flexkube_${VERSION}_linux_amd64.tar.gz | tar zxvf - terraform-provider-flexkube_${VERSION}_x4
-```
-
-### Downloading `kubectl` binary 
+### Downloading `kubectl` binary
 
 To verify that cluster is operational it is recommended to have `kubectl` binary available. You can install it using the following command:
 
@@ -112,11 +103,22 @@ Create `main.tf` file with the following content:
 
 ```tf
 terraform {
-	required_providers {
-		flexkube = "0.3.0"
-		local 	 = "1.4.0"
-		random	 = "2.2.1"
-	}
+  required_providers {
+    flexkube = {
+      source  = "flexkube/flexkube"
+      version = "0.4.0"
+    }
+    local = {
+      source  = "hashicorp/local"
+      version = "1.4.0"
+    }
+		random = {
+			source  = "hashicorp/random"
+			version = "2.2.1"
+		}
+  }
+
+  required_version = ">= 0.13"
 }
 
 variable "ip" {}

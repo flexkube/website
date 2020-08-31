@@ -136,7 +136,7 @@ terraform init && terraform apply
 
 If everything went successfully, you should see Kubernetes CA certificate in PEM format printed as Terraform output.
 
-To see all available parameters, see [flexkube_pki]({{< relref "/documentation/reference/terraform/resources/flexkube_pki" >}}) page in [Reference]({{< relref "/documentation/reference" >}}) section.
+To see all available parameters, see [flexkube_pki](https://registry.terraform.io/providers/flexkube/flexkube/latest/docs/resources/pki) page in Terraform Registry documentation.
 
  {{< /tab >}}
 {{< /tabs >}}

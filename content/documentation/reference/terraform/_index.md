@@ -1,3 +1,3 @@
 # Terraform
 
-This page contains reference documentation for all Terraform resources provided by Flexkube.
+For Terrafrom provider reference documentation, see https://registry.terraform.io/providers/flexkube/flexkube/latest/docs.

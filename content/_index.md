@@ -12,9 +12,11 @@ For quick examples of installation and usage, see the content below. For full do
 
 If you have `go` binary available in your system, you can start using Flexkube for creating Kubernetes certificates just by running the following commands:
 ```sh
-echo 'pki:
+cat <<EOF > config.yaml
+pki:
   kubernetes: {}
   etcd: {}' > config.yaml
+EOF
 go run github.com/flexkube/libflexkube/cmd/flexkube pki
 ```
 
@@ -25,11 +27,21 @@ It will create `config.yaml` configuration file which will be consumed by `flexk
 If you want to perform the same action using Terraform, execute the following commands:
 
 ```sh
-VERSION=v0.3.1 wget -qO- https://github.com/flexkube/libflexkube/releases/download/$VERSION/terraform-provider-flexkube_$VERSION_linux_amd64.tar.gz | tar zxvf - terraform-provider-flexkube_$VERSION_x4
-echo 'resource "flexkube_pki" "pki" {
+cat <<EOF > main.tf
+terraform {
+  required_providers {
+    flexkube = {
+      source  = "flexkube/flexkube"
+      version = "0.4.0"
+    }
+  }
+}
+
+resource "flexkube_pki" "pki" {
   etcd {}
   kubernetes {}
-}' > main.tf
+}
+EOF
 terraform init && terraform apply
 ```
 

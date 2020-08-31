@@ -47,7 +47,7 @@ export IP=10.0.2.15
 Once logged in, execute the following command to download `flexkube` CLI binary into working directory. This is the binary, which will be used to create a cluster components.
 
 ```sh
-export VERSION=v0.3.1
+export VERSION=v0.4.0
 wget -O- https://github.com/flexkube/libflexkube/releases/download/${VERSION}/flexkube_${VERSION}_linux_amd64.tar.gz | tar zxvf -
 ```
 
@@ -59,8 +59,7 @@ You can download it using the following command:
 
 ```sh
 export ETCD_VER=v3.4.9
-wget https://storage.googleapis.com/etcd/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -O- | tar zxvf - etcd-${ETCD_VER}-linux-amd64/etcdctl && mv etcd-${ETCD_VER}-linux-amd64/etcdctl ./ && rm
-dir etcd-${ETCD_VER}-linux-amd64
+wget https://storage.googleapis.com/etcd/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -O- | tar zxvf - etcd-${ETCD_VER}-linux-amd64/etcdctl && mv etcd-${ETCD_VER}-linux-amd64/etcdctl ./ && rmdir etcd-${ETCD_VER}-linux-amd64
 ```
 
 ### Make downloaded binaries available in $PATH

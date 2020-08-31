@@ -45,19 +45,10 @@ If you plan to use different IP addresses for connecting over SSH to your machin
 For this guide, you must have `terraform` binary available. You can download it using the following command:
 
 ```sh
-export VERSION=0.12.26
+export VERSION=0.13.1
 wget https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_amd64.zip && \
 unzip terraform_${VERSION}_linux_amd64.zip && \
-rm terraform_0.12.26_linux_amd64.zip
-```
-
-### Downloading `terraform-provider-flexkube` binary
-
-Execute the following command to download `flexkube` CLI binary into working directory on the machine where you want to create the etcd cluster.
-
-```sh
-export VERSION=v0.3.1
-wget -O- https://github.com/flexkube/libflexkube/releases/download/${VERSION}/terraform-provider-flexkube_${VERSION}_linux_amd64.tar.gz | tar zxvf - terraform-provider-flexkube_${VERSION}_x4
+rm terraform_${VERSION}_linux_amd64.zip
 ```
 
 ### Downloading `etcdctl` binary (optional)
@@ -67,9 +58,8 @@ To test cluster functionality, you can download `etcdctl` binary, however, this 
 You can download it using the following command:
 
 ```sh
-export ETCD_VER=v3.4.9
-wget https://storage.googleapis.com/etcd/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -O- | tar zxvf - etcd-${ETCD_VER}-linux-amd64/etcdctl && mv etcd-${ETCD_VER}-linux-amd64/etcdctl ./ && rm
-dir etcd-${ETCD_VER}-linux-amd64
+export ETCD_VER=v3.4.13
+wget https://storage.googleapis.com/etcd/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -O- | tar zxvf - etcd-${ETCD_VER}-linux-amd64/etcdctl && mv etcd-${ETCD_VER}-linux-amd64/etcdctl ./ && rmdir etcd-${ETCD_VER}-linux-amd64
 ```
 
 ### Make downloaded binaries available in $PATH
@@ -91,12 +81,19 @@ Now that you have all required binaries and information, we can start creating t
 First, create `main.tf` file with the following content:
 
 ```tf
-provider "flexkube" {
-  version = "0.3.0"
-}
+terraform {
+  required_providers {
+    flexkube = {
+      source  = "flexkube/flexkube"
+      version = "0.4.0"
+    }
+    local = {
+      source  = "hashicorp/local"
+      version = "1.4.0"
+    }
+  }
 
-provider "local" {
-  version = "1.4.0"
+  required_version = ">= 0.13"
 }
 
 variable "members" {

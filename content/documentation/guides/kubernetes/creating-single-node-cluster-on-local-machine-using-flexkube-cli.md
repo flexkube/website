@@ -63,7 +63,7 @@ export DNS_SERVICE_IP=11.0.0.10
 Once logged in, execute the following command to download `flexkube` CLI binary into working directory. This is the binary, which will be used to create a cluster components.
 
 ```sh
-export VERSION=v0.3.1
+export VERSION=v0.4.0
 wget -O- https://github.com/flexkube/libflexkube/releases/download/${VERSION}/flexkube_${VERSION}_linux_amd64.tar.gz | tar zxvf -
 ```
 
@@ -80,7 +80,7 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s http
 Parts of cluster provisioning is done using [Helm](https://helm.sh/) 3 binary, when deploying the cluster using the `flexkube` CLI. You can install it using the following command:
 
 ```sh
-wget -O- https://get.helm.sh/helm-v3.2.1-linux-amd64.tar.gz | tar -zxvf - linux-amd64/helm && mv linux-amd64/helm ./ && rmdir linux-amd64
+wget -O- https://get.helm.sh/helm-v3.3.0-linux-amd64.tar.gz | tar -zxvf - linux-amd64/helm && mv linux-amd64/helm ./ && rmdir linux-amd64
 ```
 
 ### Make downloaded binaries available in $PATH

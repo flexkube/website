@@ -6,10 +6,10 @@ The easiest way to get Flexkube CLI	 is to use one of the pre-built release bina
 
 See [Github Releases](https://github.com/flexkube/libflexkube/releases) page to find the latest available release.
 
-For example, to download version `v0.3.1` on Linux, execute the following command:
+For example, to download version `v0.4.0` on Linux, execute the following command:
 
 ```sh
-VERSION=v0.3.1
+VERSION=v0.4.0
 ```
 
 It will download the `flexkube` binary into your current directory. It is recommende to move this binary into one of directories mentioned in your `$PATH` environment variable, e.g. to `~/.local/bin` or `/usr/local/bin`, to make it easy to access.
