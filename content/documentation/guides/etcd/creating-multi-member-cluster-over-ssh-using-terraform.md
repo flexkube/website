@@ -45,10 +45,10 @@ If you plan to use different IP addresses for connecting over SSH to your machin
 For this guide, you must have `terraform` binary available. You can download it using the following command:
 
 ```sh
-export VERSION=0.13.1
-wget https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_amd64.zip && \
-unzip terraform_${VERSION}_linux_amd64.zip && \
-rm terraform_${VERSION}_linux_amd64.zip
+export TERRAFORM_VERSION=0.15.4
+wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 ```
 
 ### Downloading `etcdctl` binary (optional)
@@ -58,8 +58,8 @@ To test cluster functionality, you can download `etcdctl` binary, however, this 
 You can download it using the following command:
 
 ```sh
-export ETCD_VER=v3.4.13
-wget https://storage.googleapis.com/etcd/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -O- | tar zxvf - etcd-${ETCD_VER}-linux-amd64/etcdctl && mv etcd-${ETCD_VER}-linux-amd64/etcdctl ./ && rmdir etcd-${ETCD_VER}-linux-amd64
+export ETCD_VERSION=v3.4.13
+wget https://storage.googleapis.com/etcd/${ETCD_VERSION}/etcd-${ETCD_VERSION}-linux-amd64.tar.gz -O- | tar zxvf - etcd-${ETCD_VERSION}-linux-amd64/etcdctl && mv etcd-${ETCD_VERSION}-linux-amd64/etcdctl ./ && rmdir etcd-${ETCD_VERSION}-linux-amd64
 ```
 
 ### Make downloaded binaries available in $PATH
@@ -85,7 +85,7 @@ terraform {
   required_providers {
     flexkube = {
       source  = "flexkube/flexkube"
-      version = "0.4.0"
+      version = "0.5.1"
     }
     local = {
       source  = "hashicorp/local"
@@ -93,7 +93,7 @@ terraform {
     }
   }
 
-  required_version = ">= 0.13"
+  required_version = ">= 0.15"
 }
 
 variable "members" {

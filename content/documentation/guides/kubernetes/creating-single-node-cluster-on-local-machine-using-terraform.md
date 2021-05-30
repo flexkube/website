@@ -71,10 +71,10 @@ export TF_VAR_node_name=$(hostname)
 For this guide, you must have `terraform` binary available. You can download it using the following command:
 
 ```sh
-export VERSION=0.13.1
-wget https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_amd64.zip && \
-unzip terraform_${VERSION}_linux_amd64.zip && \
-rm terraform_${VERSION}_linux_amd64.zip
+export TERRAFORM_VERSION=0.15.6
+wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 ```
 
 ### Downloading `kubectl` binary
@@ -106,7 +106,7 @@ terraform {
   required_providers {
     flexkube = {
       source  = "flexkube/flexkube"
-      version = "0.4.0"
+      version = "0.5.1"
     }
     local = {
       source  = "hashicorp/local"
@@ -118,7 +118,7 @@ terraform {
 		}
   }
 
-  required_version = ">= 0.13"
+  required_version = ">= 0.15"
 }
 
 variable "ip" {}
