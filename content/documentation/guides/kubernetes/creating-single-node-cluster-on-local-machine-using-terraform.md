@@ -71,7 +71,7 @@ export TF_VAR_node_name=$(hostname)
 For this guide, you must have `terraform` binary available. You can download it using the following command:
 
 ```sh
-export TERRAFORM_VERSION=0.15.6
+export TERRAFORM_VERSION=0.15.4
 wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
 unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
 rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip

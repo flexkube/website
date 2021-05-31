@@ -27,6 +27,7 @@ export SERVICE_CIDR=11.0.0.0/24
 export KUBERNETES_SERVICE_IP=11.0.0.1
 export DNS_SERVICE_IP=11.0.0.10
 export FLEXKUBE_VERSION=v0.6.0
+export HELM_VERSION=3.5.4
 export PATH="$(pwd):${PATH}"
 export TOKEN_ID=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 6 | head -n 1)
 export TOKEN_SECRET=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 16 | head -n 1)
@@ -37,7 +38,7 @@ umask 077
 
 [ ! -f flexkube ] && wget -O- https://github.com/flexkube/libflexkube/releases/download/${FLEXKUBE_VERSION}/flexkube_${FLEXKUBE_VERSION}_linux_amd64.tar.gz | tar zxvf -
 [ ! -f kubectl ] && curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl && chmod +x kubectl
-[ ! -f helm ] && wget -O- https://get.helm.sh/helm-v3.5.4-linux-amd64.tar.gz | tar -zxvf - linux-amd64/helm && mv linux-amd64/helm ./ && rmdir linux-amd64
+[ ! -f helm ] && wget -O- https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz | tar -zxvf - linux-amd64/helm && mv linux-amd64/helm ./ && rmdir linux-amd64
 
 
 cat <<EOF | sed '/^$/d' > config.yaml
